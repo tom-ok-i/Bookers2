@@ -5,12 +5,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
+    @rel = @user.followers.find_by(follower: current_user)
   end
   
   def index
     @users = User.all
     @user = current_user
     @book = Book.new
+    @rel = @user.followers.find_by(follower: current_user)
   end 
   
   def edit 
