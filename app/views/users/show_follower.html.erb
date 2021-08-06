@@ -1,0 +1,37 @@
+  <h2>Follower Users</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+    <tbody>
+     <%if @user.followers.present? %>
+      <% @user.followers.each do |relationship| %>
+        <tr>
+          <td>
+            <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+          </td>
+          <td>
+            <%= user.name %>
+          </td>
+          <td>
+            Following:<%= user.following.count %>
+          </td>
+          <td>
+            Followers:<%= user.followers.count %>
+          </td>
+          <td>
+            <%= link_to "Show", user_path(user.id) %>
+          </td>
+        </tr>
+       <% end %>
+       <% else %>
+        <div class="error-message">
+          <p class="error-text">ユーザーはいません</p>
+        </div>
+        <% end %>
+      </tbody>
+    </table>
