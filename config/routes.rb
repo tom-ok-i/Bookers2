@@ -11,7 +11,6 @@ Rails.application.routes.draw do
     end 
     resource :relationships, only:[:create, :destroy]
   end 
-
-  
   get 'home/about', to: "homes#about"
+  get '/search', to: 'searches#search'
 end
