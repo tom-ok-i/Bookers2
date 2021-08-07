@@ -48,7 +48,7 @@ class SearchesController < ApplicationController
     when 'forward'
       forward(model, value)
     when 'backward'
-      backwarad(model, value)
+      backward(model, value)
     when 'partial'
       partial(model, value)
     end
